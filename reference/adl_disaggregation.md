@@ -1,6 +1,7 @@
-# Temporal disaggregation of a time series with ADL models
+# Temporal Disaggregation of a Time Series by ADL Model
 
-Temporal disaggregation of a time series with ADL models
+Perform temporal disaggregation of low-frequency to high-frequency time
+series using an Autoregressive Distributed Lag regression model.
 
 ## Usage
 
@@ -23,51 +24,77 @@ adl_disaggregation(
 
 - series:
 
-  The low frequency time series that will be disaggregated. It must be a
-  ts object.
+  A low-frequency time series to be disaggregated. It must be `"ts"`
+  object.
 
 - constant:
 
-  Constant term (T/F, T by default)
+  Boolean. Indicates whether a constant term is included in the model.
+  The default is `TRUE`.
 
 - trend:
 
-  Linear trend (T/F, F by default)
+  Boolean. Indicates whether a linear trend is included in the model.
+  The default is `FALSE`.
 
 - indicators:
 
-  High-frequency indicator(s). It must be a (list of) ts object(s).
+  One or more high-frequency indicator series. If not NULL (the
+  default), this must be a `"ts"` object or a list of `"ts"` objects.
 
 - average:
 
-  Average conversion (T/F). Default is F, which means additive
-  conversion.
+  Boolean. Indicates whether an average conversion should be considered.
+  The default is `FALSE`, corresponding to additive conversion.
 
 - phi:
 
-  (Initial) value of the phi parameter
+  A numeric value giving the (initial) value of the phi parameter
 
 - phi.fixed:
 
-  Fixed phi (T/F, F by default)
+  Boolean. Specifies whether the supplied value of `phi` is fixed. The
+  default is `FALSE`, which indicates that `phi` is estimated.
 
 - phi.truncated:
 
-  Range for phi evaluation (in \[phi.truncated, 1\[)
+  A numeric value defining the lower bound of the admissible range for
+  `phi`. The evaluation range is `[phi.truncated, 1[`.
 
 - xar:
 
-  Constraints on the coefficients of the lagged regression variables.
-  See vignette for more information on this.
+  A character string specifying the constraints imposed on the
+  coefficients of the lagged regression variables. The default is
+  `"FREE"`, which indicates that no constraints are applied. Other
+  options are: `"SAME"`and `"NONE"`. For additional information, see the
+  package vignette.
 
 - diffuse:
 
-  Indicates if the coefficients of the regression model are diffuse (T)
-  or fixed unknown (F, default)
+  Boolean. Indicates whether the coefficients of the regression model
+  are treated as diffuse (`TRUE`) or as fixed unknown (`FALSE`, the
+  default).
 
 ## Value
 
-An object of class "JD3AdlDisagg"
+An object of class "JD3_ADLDISAGG_RSLTS" is returned. The following are
+returned as a list:
+
+- `regression` `[[1]]` regression coefficients;
+
+- `estimation` `[[2]]` disaggregated time series and standard errors,
+  parameter and residuals;
+
+- `likelihood` `[[3]]` likelihood statistics.
+
+## Vignette
+
+For more information on the method, its arguments, and the other methods
+available in the package, see the package vignette:
+
+- In R: `browseVignettes(package = "rjd3bench")`
+
+- Online: <https://rjdverse.github.io/rjd3bench/articles/rjd3bench.html>
 
 ## References
 
@@ -75,17 +102,10 @@ Proietti, P. (2005). Temporal Disaggregation by State Space Methods:
 Dynamic Regression Methods Revisited. Working papers and Studies,
 European Commission, ISSN 1725-4825.
 
-## See also
-
-For more information, see the vignette:
-
-[`browseVignettes`](https://rdrr.io/r/utils/browseVignettes.html)
-`browseVignettes(package = "rjd3bench")`
-
 ## Examples
 
 ``` r
-# adl model
+# ADL model
 data("qna_data")
 Y <- ts(qna_data$B1G_Y_data[,"B1G_FF"], frequency = 1, start = c(2009,1))
 x <- ts(qna_data$TURN_Q_data[,"TURN_INDEX_FF"], frequency = 4, start = c(2009,1))
@@ -106,8 +126,9 @@ td1$estimation$disagg
 #> 2020 5042.060 4873.840 5147.902 6502.698
 #> 2021 5332.868 6337.108 5427.407 6991.385
 
-# adl models with constraints
+# ADL models with constraints
 td2 <- adl_disaggregation(Y, indicators = x, xar = "SAME") # ~ Chow-Lin
-td3 <- adl_disaggregation(Y, constant = FALSE, indicators = x, xar = "SAME", phi = 1, phi.fixed = TRUE) # ~ Fernandez
+td3 <- adl_disaggregation(Y, constant = FALSE, indicators = x,
+                          xar = "SAME", phi = 1, phi.fixed = TRUE) # ~ Fernandez
 td4 <- adl_disaggregation(Y, indicators = x, xar = "NONE") # ~ Santos Silva-Cardoso
 ```

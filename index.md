@@ -1,15 +1,17 @@
 # `rjd3bench`
 
-[![R-CMD-check](https://github.com/rjdverse/rjd3bench/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rjdverse/rjd3bench/actions/workflows/R-CMD-check.yaml)
-[![lint](https://github.com/rjdverse/rjd3bench/actions/workflows/lint.yaml/badge.svg)](https://github.com/rjdverse/rjd3bench/actions/workflows/lint.yaml)
+[![R-CMD-check](https://github.com/rjdverse/rjd3bench/actions/workflows/R-CMD-check.yml/badge.svg)](https://github.com/rjdverse/rjd3bench/actions/workflows/R-CMD-check.yml)
+[![lint](https://github.com/rjdverse/rjd3bench/actions/workflows/lint.yml/badge.svg)](https://github.com/rjdverse/rjd3bench/actions/workflows/lint.yml)
 
 [![GH Pages
-built](https://github.com/rjdverse/rjd3bench/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/rjdverse/rjd3bench/actions/workflows/pkgdown.yaml)
+built](https://github.com/rjdverse/rjd3bench/actions/workflows/pkgdown.yml/badge.svg)](https://github.com/rjdverse/rjd3bench/actions/workflows/pkgdown.yml)
 
 ## Overview
 
-rjd3bench provides a variety of methods for temporal disaggregation &
-interpolation, benchmarking, reconciliation and calendarization.
+The package `rjd3bench` provides a variety of methods for temporal
+disaggregation & interpolation, benchmarking, reconciliation &
+multivariate temporal disaggregation and calendarization, using highly
+efficient algorithms.
 
 Temporal disaggregation & interpolation:
 
@@ -28,12 +30,15 @@ Benchmarking:
 Reconciliation and multivariate temporal disaggregation:
 
 - Multivariate Cholette
+- Multivariate Chow-Lin and Fernandez
 
 Calendarization
 
+- Calendarization with Denton
+
 ## Installation
 
-Running rjd3 packages requires **Java 17 or higher**. How to set up such
+Running rjd3 packages requires **Java 21 or higher**. How to set up such
 a configuration in R is explained
 [here](https://jdemetra-new-documentation.netlify.app/#Rconfig)
 
@@ -41,9 +46,17 @@ a configuration in R is explained
 
 To get the current stable version (from the latest release):
 
+- From CRAN:
+
+``` r
+
+install.packages("rjd3bench")
+```
+
 - From GitHub:
 
 ``` r
+
 # install.packages("remotes")
 remotes::install_github("rjdverse/rjd3toolkit@*release")
 remotes::install_github("rjdverse/rjd3bench@*release", build_vignettes = TRUE)
@@ -52,6 +65,7 @@ remotes::install_github("rjdverse/rjd3bench@*release", build_vignettes = TRUE)
 - From [r-universe](https://rjdverse.r-universe.dev/rjd3bench):
 
 ``` r
+
 install.packages("rjd3bench", repos = c("https://rjdverse.r-universe.dev", "https://cloud.r-project.org"))
 ```
 
@@ -60,6 +74,7 @@ install.packages("rjd3bench", repos = c("https://rjdverse.r-universe.dev", "http
 To get the current development version from GitHub:
 
 ``` r
+
 # install.packages("remotes")
 remotes::install_github("rjdverse/rjd3bench", build_vignettes = TRUE)
 ```
@@ -75,4 +90,4 @@ should be added or updated.
 
 The code of this project is licensed under the [European Union Public
 Licence
-(EUPL)](https://interoperable-europe.ec.europa.eu:443/collection/eupl/eupl-text-eupl-12).
+(EUPL)](https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12).

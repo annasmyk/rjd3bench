@@ -28,41 +28,52 @@ calendarization(
 
 - calendarobs:
 
-  A named list with the observed data. The list must be composed of
-  three elements: start, end and value, the first two corresponding to
-  the starting and ending date of the observation. See example.
+  A named list containing the observed data. The list must consist of
+  three elements: `start`, `end` and `value`, where the first two
+  indicate the starting and ending dates of the observation. See the
+  example.
 
 - freq:
 
-  Annual frequency. If 0, only the daily series are computed.
+  An integer specifying the annual frequency. If set to `0`, only the
+  daily series is computed.
 
 - start:
 
-  Starting day of the calendarization. Could be before the starting date
-  of the first observation (retropolation).
+  The starting day of the calendarization. This date may precede the
+  first observed data (retropolation).
 
 - end:
 
-  Ending day of the calendarization. Could be after the ending date of
-  the last observation (extrapolation).
+  The ending day of the calendarization. This date may exceed the last
+  observed data (extrapolation).
 
 - dailyweights:
 
-  Daily indicator values (or weights). Should have the same length as
-  the requested series. If available, it typically reflects the daily
-  level of activity that may be varying in function for instance of
-  seasonality, trading day or other calendar effects such as public
-  holidays.
+  A numeric vector of daily indicator values (or weights). The vector
+  must have the same length as the requested daily series. When
+  available, these weights typically reflects daily levels of activity,
+  which may vary due to seasonality, trading day effects, or other
+  calendar effects such as public holidays.
 
 - stde:
 
-  Boolean. If TRUE, the function also returns the standard errors
-  associated to the results. Default is FALSE.
+  Boolean. If `TRUE`, the function also returns the standard errors
+  associated with the results. The default is `FALSE`.
 
 ## Value
 
-a list with the disaggregated daily values, the final aggregated
-results, and their associated errors if requested.
+A list containing the disaggregated daily values, the final aggregated
+series, and their associated standard errors if requested.
+
+## Vignette
+
+For more information on the method, its arguments, and the other methods
+available in the package, see the package vignette:
+
+- In R: `browseVignettes(package = "rjd3bench")`
+
+- Online: <https://rjdverse.github.io/rjd3bench/articles/rjd3bench.html>
 
 ## References
 
@@ -70,16 +81,10 @@ Quenneville, B., Picard F., Fortier S. (2012). Calendarization with
 interpolating splines and state space models. Statistics Canada, Appl.
 Statistics (2013) 62, part 3, pp 371-399.
 
-## See also
-
-For more information, see the vignette:
-
-[`browseVignettes`](https://rdrr.io/r/utils/browseVignettes.html)
-`browseVignettes(package = "rjd3bench")`
-
 ## Examples
 
 ``` r
+
 # Example 1 (from Quenneville et al (2012))
 
 ## Observed data

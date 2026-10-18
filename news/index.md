@@ -1,6 +1,6 @@
 # Changelog
 
-## rjd3bench 3.1.0.9000
+## rjd3bench 3.1.3.9000
 
 All notable changes to this project will be documented in this file.
 
@@ -8,7 +8,33 @@ The format is based on [Keep a
 Changelog](https://keepachangelog.com/en/1.1.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-### [Unreleased](https://github.com/rjdverse/rjd3bench/compare/v3.1.0...HEAD)
+### [Unreleased](https://github.com/rjdverse/rjd3bench/compare/v3.1.3...HEAD)
+
+#### Added
+
+- Add function
+  [`multivariatechowlin()`](https://rjdverse.github.io/rjd3bench/reference/multivariatechowlin.md)
+  for multivariate temporal disaggregation
+
+### [3.1.3](https://github.com/rjdverse/rjd3bench/compare/v3.1.2...v3.1.3) - 2026-07-13
+
+#### Fixed
+
+- Fix error in package installation and update dependencies
+
+### [3.1.2](https://github.com/rjdverse/rjd3bench/compare/v3.1.1...v3.1.2) - 2026-05-04
+
+#### Fixed
+
+- Fix documentation and default value of parameters in multivariate
+  Cholette
+
+### [3.1.1](https://github.com/rjdverse/rjd3bench/compare/v3.1.0...v3.1.1) - 2026-03-31
+
+#### Fixed
+
+- Prepare package for CRAN
+- Enhancing documentation
 
 ### [3.1.0](https://github.com/rjdverse/rjd3bench/compare/v3.0.0...v3.1.0) - 2025-12-19
 
@@ -19,14 +45,17 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 #### Changed
 
-- Default value of lambda is changed to 0.8 in multivariate Cholette
+- Default value of parameters changed in multivariate Cholette
 - Re-ordering of the returned benchmarked series in multivariate
   Cholette
-- Change/add parameters in adl_disaggregation() function
+- Change/add parameters in
+  [`adl_disaggregation()`](https://rjdverse.github.io/rjd3bench/reference/adl_disaggregation.md)
+  function
 
 #### Fixed
 
-- Solve bugs and instability issues in adl_disaggregation()
+- Solve bugs and instability issues in
+  [`adl_disaggregation()`](https://rjdverse.github.io/rjd3bench/reference/adl_disaggregation.md)
 
 ### [3.0.0](https://github.com/rjdverse/rjd3bench/compare/v2.1.0...v3.0.0) - 2025-05-12
 
@@ -54,29 +83,40 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 #### Fixed
 
 - Solve issue in residual output when tests fail
-- Solve some instability issue in multivariatecholette()
+- Solve some instability issue in
+  [`multivariatecholette()`](https://rjdverse.github.io/rjd3bench/reference/multivariatecholette.md)
 
 ### [2.1.0](https://github.com/rjdverse/rjd3bench/compare/v2.0.1...v2.1.0) - 2024-07-18
 
 #### Added
 
-- Add output on residuals in temporaldisaggregation() function
+- Add output on residuals in
+  [`temporaldisaggregation()`](https://rjdverse.github.io/rjd3bench/reference/deprecated-rjd3bench.md)
+  function
+
+#### Changed
+
+- New JARS related to version
+  [2.1.0](https://github.com/jdemetra/jdplus-benchmarking/releases/tag/v2.1.0)
 
 ### [2.0.1](https://github.com/rjdverse/rjd3bench/compare/v2.0.0...v2.0.1) - 2024-07-12
 
 #### Changed
 
-- new jars related to version
-  [1.2.1](https://github.com/jdemetra/jdplus-benchmarking/releases/tag/v1.2.1)\*
+- New JARS related to version
+  [2.0.1](https://github.com/jdemetra/jdplus-benchmarking/releases/tag/v2.0.1)
 
-### [2.0.0](https://github.com/rjdverse/rjd3bench/compare/v1.0.0...2.0.0) - 2023-12-12
+### [2.0.0](https://github.com/rjdverse/rjd3bench/compare/v1.0.0...v2.0.0) - 2023-12-12
 
-#### Added
+#### Changed
 
-- v2.0.0
+- New JARS related to version
+  [2.0.0](https://github.com/jdemetra/jdplus-benchmarking/releases/tag/v2.0.0)
 
 ### [1.0.0](https://github.com/rjdverse/rjd3bench/releases/tag/v1.0.0) - 2023-07-06
 
 #### Added
 
 - Initial commit
+- Initial JARS related to version
+  [1.0.0](https://github.com/jdemetra/jdplus-benchmarking/releases/tag/v1.0.0)
